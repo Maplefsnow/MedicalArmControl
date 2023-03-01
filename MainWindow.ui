@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>624</width>
-    <height>762</height>
+    <width>978</width>
+    <height>784</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,50 +15,11 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label_10">
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>板卡ID：</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_cardID">
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>未检测</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="button_cardDetect">
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>检测</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
     <item row="1" column="0">
      <widget class="QGroupBox" name="groupBox_Motor">
       <property name="font">
        <font>
+        <family>Microsoft YaHei UI</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -554,6 +515,7 @@
            <widget class="QGroupBox" name="groupBox_5">
             <property name="font">
              <font>
+              <family>Microsoft YaHei UI</family>
               <pointsize>11</pointsize>
              </font>
             </property>
@@ -567,6 +529,7 @@
                 <widget class="QLabel" name="label_13">
                  <property name="font">
                   <font>
+                   <family>Microsoft YaHei UI</family>
                    <pointsize>11</pointsize>
                   </font>
                  </property>
@@ -579,6 +542,7 @@
                 <widget class="QComboBox" name="comboBox_axisID">
                  <property name="font">
                   <font>
+                   <family>Microsoft YaHei UI</family>
                    <pointsize>11</pointsize>
                   </font>
                  </property>
@@ -724,8 +688,17 @@
                    <bold>false</bold>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 0, 0);</string>
+                 </property>
                  <property name="text">
                   <string>STOP</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
                  </property>
                 </widget>
                </item>
@@ -768,9 +741,251 @@
       </layout>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="MotorPanel" name="widget_2" native="true">
-      <layout class="QHBoxLayout" name="horizontalLayout_11">
+    <item row="1" column="1">
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>导丝递送控制</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QWidget" name="widget_2" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QGroupBox" name="groupBox_7">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="title">
+             <string>参数设置</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QLabel" name="label_12">
+                 <property name="text">
+                  <string>递送方向：</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton">
+                 <property name="text">
+                  <string>正向</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButton_2">
+                 <property name="text">
+                  <string>反向</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <widget class="QLabel" name="label_14">
+                 <property name="text">
+                  <string>递送速度：</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_15">
+                 <property name="text">
+                  <string>mm/s</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_8">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei UI</family>
+              <pointsize>11</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="title">
+             <string>操作面板</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <item>
+                <widget class="QLabel" name="label_16">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>递送距离(mm)</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDoubleSpinBox" name="doubleSpinBox_runDis_2">
+                 <property name="decimals">
+                  <number>2</number>
+                 </property>
+                 <property name="minimum">
+                  <double>-10000000.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>10000000.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="button_runDis_2">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>GO</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <item>
+                <widget class="QToolButton" name="toolButton_RevXCmove_2">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>&lt;&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButton_RevXmove_2">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButton_stopMotor_2">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 0, 0);</string>
+                 </property>
+                 <property name="text">
+                  <string>STOP</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButton_Xmove_2">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="toolButton_XCmove_2">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei UI</family>
+                   <pointsize>11</pointsize>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>&gt;&gt;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>手柄动作显示</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="JoyStickPanel" name="widget" native="true">
          <property name="minimumSize">
@@ -837,10 +1052,76 @@
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
+         <widget class="QToolButton" name="toolButton_RT">
+          <property name="geometry">
+           <rect>
+            <x>480</x>
+            <y>40</y>
+            <width>51</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>RT</string>
+          </property>
+         </widget>
+         <widget class="QToolButton" name="toolButton_LT">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>40</y>
+            <width>51</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>LT</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
      </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_10">
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>板卡ID：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_cardID">
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>未检测</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="button_cardDetect">
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>检测</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -849,7 +1130,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>624</width>
+     <width>978</width>
      <height>22</height>
     </rect>
    </property>
