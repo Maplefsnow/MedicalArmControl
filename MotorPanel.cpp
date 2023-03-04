@@ -56,7 +56,7 @@ Q_INVOKABLE void MotorPanel::updateAxisStatus() {
 Q_INVOKABLE void MotorPanel::runAxisByJoyStick() {
 	int x1 = this->joyStick.getX(), x2 = this->joyStick.getU();
 	int y1 = this->joyStick.getY(), y2 = this->joyStick.getR();
-	int z  = this->joyStick.getZ();
+	int z  = this->joyStick.getZ(), POV = this->joyStick.getPOV();
 
 	if (this->axis[2].getHand() == 0) return;
 
@@ -177,7 +177,7 @@ void MotorPanel::checkCard() {
 
 	qDebug() << deviceNumStr;
 
-	mainWindow->ui.label_cardID->setText(QString::fromStdString(deviceNumStr));
+	// mainWindow->ui.label_cardID->setText(QString::fromStdString(deviceNumStr));
 }
 
 //void MotorPanel::initAxis() {

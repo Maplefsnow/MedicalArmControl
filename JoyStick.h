@@ -24,5 +24,6 @@ public:
 	int getR();
 	int getU();
 	int getZ();
+	int getPOV();
 };
 

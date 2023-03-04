@@ -43,4 +43,9 @@ int JoyStick::getZ() {
     return this->joyinfoex.dwZpos;
 }
 
+int JoyStick::getPOV() {
+    updateJoyInfoEx();
+    return this->joyinfoex.dwPOV;
+}
+
 

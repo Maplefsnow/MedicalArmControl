@@ -553,32 +553,37 @@
                  </item>
                  <item>
                   <property name="text">
-                   <string>0 - 递送</string>
+                   <string>0 - 手柄补偿</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>1</string>
+                   <string>1 - （空）</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>2 - 推杆</string>
+                   <string>2 - 手柄推杆</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>3 - 横滚</string>
+                   <string>3 - 手柄横滚</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>4</string>
+                   <string>4 - 夹爪横移</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>5</string>
+                   <string>5 - 夹爪右</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>6 - 夹爪左</string>
                   </property>
                  </item>
                 </widget>
@@ -727,6 +732,24 @@
                  </property>
                  <property name="text">
                   <string>&gt;&gt;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_10">
+               <item>
+                <widget class="QPushButton" name="pushButton_setZero">
+                 <property name="text">
+                  <string>设置零位</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_returnZero">
+                 <property name="text">
+                  <string>返回零位</string>
                  </property>
                 </widget>
                </item>
@@ -1061,6 +1084,9 @@
             <height>41</height>
            </rect>
           </property>
+          <property name="styleSheet">
+           <string notr="true">font: 11pt &quot;Microsoft YaHei UI&quot;;</string>
+          </property>
           <property name="text">
            <string>RT</string>
           </property>
@@ -1074,8 +1100,14 @@
             <height>41</height>
            </rect>
           </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>LT</string>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextOnly</enum>
           </property>
          </widget>
         </widget>
@@ -1175,6 +1207,42 @@
    </slots>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>button_cardDetect</tabstop>
+  <tabstop>comboBox_axisID</tabstop>
+  <tabstop>spinBox_PPU</tabstop>
+  <tabstop>spinBox_PPUDenominator</tabstop>
+  <tabstop>spinBox_acc</tabstop>
+  <tabstop>spinBox_dec</tabstop>
+  <tabstop>spinBox_runningVel</tabstop>
+  <tabstop>spinBox_initVel</tabstop>
+  <tabstop>paramsSetButton</tabstop>
+  <tabstop>doubleSpinBox_runDis</tabstop>
+  <tabstop>button_runDis</tabstop>
+  <tabstop>toolButton_RevXCmove</tabstop>
+  <tabstop>toolButton_RevXmove</tabstop>
+  <tabstop>toolButton_stopMotor</tabstop>
+  <tabstop>toolButton_Xmove</tabstop>
+  <tabstop>toolButton_XCmove</tabstop>
+  <tabstop>pushButton_setZero</tabstop>
+  <tabstop>pushButton_returnZero</tabstop>
+  <tabstop>radioButton</tabstop>
+  <tabstop>radioButton_2</tabstop>
+  <tabstop>doubleSpinBox</tabstop>
+  <tabstop>doubleSpinBox_runDis_2</tabstop>
+  <tabstop>button_runDis_2</tabstop>
+  <tabstop>toolButton_RevXCmove_2</tabstop>
+  <tabstop>toolButton_RevXmove_2</tabstop>
+  <tabstop>toolButton_stopMotor_2</tabstop>
+  <tabstop>toolButton_Xmove_2</tabstop>
+  <tabstop>toolButton_XCmove_2</tabstop>
+  <tabstop>toolButton_LT</tabstop>
+  <tabstop>toolButton_RT</tabstop>
+  <tabstop>horizontalSlider_x1</tabstop>
+  <tabstop>verticalSlider_y1</tabstop>
+  <tabstop>horizontalSlider_x2</tabstop>
+  <tabstop>verticalSlider_y2</tabstop>
+ </tabstops>
  <resources>
   <include location="MainWindow.qrc"/>
  </resources>
@@ -1186,7 +1254,7 @@
    <slot>detectCard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>613</x>
+     <x>967</x>
      <y>71</y>
     </hint>
     <hint type="destinationlabel">
@@ -1202,8 +1270,8 @@
    <slot>setAxisParams()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>89</x>
-     <y>445</y>
+     <x>127</x>
+     <y>415</y>
     </hint>
     <hint type="destinationlabel">
      <x>26</x>
@@ -1219,7 +1287,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>584</x>
-     <y>226</y>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>602</x>
@@ -1234,8 +1302,8 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>462</x>
-     <y>384</y>
+     <x>465</x>
+     <y>295</y>
     </hint>
     <hint type="destinationlabel">
      <x>603</x>
@@ -1250,8 +1318,8 @@
    <slot>axisRun()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>507</x>
-     <y>380</y>
+     <x>511</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>596</x>
@@ -1266,8 +1334,8 @@
    <slot>axisStop()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>507</x>
-     <y>392</y>
+     <x>511</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>598</x>
@@ -1283,7 +1351,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>388</x>
-     <y>385</y>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>599</x>
@@ -1299,7 +1367,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>388</x>
-     <y>374</y>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>596</x>
@@ -1315,7 +1383,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>342</x>
-     <y>381</y>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>599</x>
@@ -1330,8 +1398,8 @@
    <slot>axisRun()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>565</x>
-     <y>387</y>
+     <x>568</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>598</x>
@@ -1352,6 +1420,38 @@
     <hint type="destinationlabel">
      <x>188</x>
      <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setZero</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>setAxisZero()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>495</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_returnZero</sender>
+   <signal>clicked()</signal>
+   <receiver>motorWidget</receiver>
+   <slot>axisReturnCmdZero()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>515</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>515</x>
+     <y>493</y>
     </hint>
    </hints>
   </connection>
