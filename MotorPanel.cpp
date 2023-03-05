@@ -14,6 +14,8 @@ MotorPanel::MotorPanel(QWidget* parent) : QWidget(parent) {
 
 	checkCard();
 	initAllAxis();
+
+	this->wireCarryPlatform = WireCarryPlatform(this->axis[4], this->axis[6], this->axis[5]);
 }
 
 MotorPanel::~MotorPanel() {
@@ -56,12 +58,14 @@ Q_INVOKABLE void MotorPanel::updateAxisStatus() {
 Q_INVOKABLE void MotorPanel::runAxisByJoyStick() {
 	int x1 = this->joyStick.getX(), x2 = this->joyStick.getU();
 	int y1 = this->joyStick.getY(), y2 = this->joyStick.getR();
-	int z  = this->joyStick.getZ(), POV = this->joyStick.getPOV();
+	int z  = this->joyStick.getZ(); 
+	int POV = this->joyStick.getPOV(), button = this->joyStick.getButton();
 
 	if (this->axis[2].getHand() == 0) return;
 
 	bool is_control = false;
 
+	// axis 2
 	try {
 		if (y2 <= 37000 && y2 >= 28000) {
 			this->axis[2].stop();
@@ -86,6 +90,7 @@ Q_INVOKABLE void MotorPanel::runAxisByJoyStick() {
 		qDebug() << msg;
 	}
 
+	// axis 3
 	try {
 		if (z <= 37000 && z >= 28000) {
 			this->axis[3].stop();
@@ -105,6 +110,7 @@ Q_INVOKABLE void MotorPanel::runAxisByJoyStick() {
 		qDebug() << msg;
 	}
 
+	// axis 0
 	try {
 		if (y1 <= 37000 && y1 >= 28000) {
 			this->axis[0].stop();
@@ -125,6 +131,49 @@ Q_INVOKABLE void MotorPanel::runAxisByJoyStick() {
 		qDebug() << msg;
 	}
 
+	// Wire Carry Platform
+	try {
+		//shift
+		if (POV == 65535) {
+			this->wireCarryPlatform.shiftStop();
+		}
+		else {
+			is_control = true;
+			switch (POV) {
+				case 0: {
+					this->wireCarryPlatform.setWireDir(true);
+
+					if (this->wireCarryPlatform.getShiftDir() == true) {
+						if(this->wireCarryPlatform.getShift().getMotionStatus() == 1)
+							this->wireCarryPlatform.shiftRunConti(0);
+					}
+					else {
+						if (this->wireCarryPlatform.getShift().getMotionStatus() == 1)
+							this->wireCarryPlatform.shiftRunConti(1);
+					}
+					break;
+				}
+				case 18000: {
+					this->wireCarryPlatform.setWireDir(false);
+
+					if (this->wireCarryPlatform.getShiftDir() == true) {
+						if (this->wireCarryPlatform.getShift().getMotionStatus() == 1)
+							this->wireCarryPlatform.shiftRunConti(0);
+					}
+					else {
+						if (this->wireCarryPlatform.getShift().getMotionStatus() == 1)
+							this->wireCarryPlatform.shiftRunConti(1);
+					}
+					break;
+				}
+				default: break;
+			}
+		}
+	}
+	catch (const char* msg) {
+		qDebug() << msg;
+	}
+
 	if (is_control == false) {
 		this->runAxisThread->stop();
 	}
@@ -134,16 +183,38 @@ Q_INVOKABLE void MotorPanel::wakeRunAxisByJoyStick() {
 	int x1 = this->joyStick.getX(), x2 = this->joyStick.getU();
 	int y1 = this->joyStick.getY(), y2 = this->joyStick.getR();
 	int z  = this->joyStick.getZ();
+	int POV = this->joyStick.getPOV(), button = this->joyStick.getButton();
 
 	if (this->axis[2].getHand() == 0) return;
 
 	if (y1 >= 37000 || y1 <= 28000 || 
 		y2 >= 37000 || y2 <= 28000 ||
 		x2 >= 37000 || x2 <= 28000 ||
-		z >= 37000 || z <= 28000) {
+		z >= 37000 || z <= 28000 ||
+		POV != 65535 || button != 0) {
 		if(this->runAxisThread->getRunnable() == false) {
 			this->runAxisThread->setRunnable(true);
 		}
+	}
+}
+
+Q_INVOKABLE void MotorPanel::platformDirMonitor() {
+	if (this->wireCarryPlatform.getShift().getCmdPos() < 0) {
+		this->wireCarryPlatform.shiftStop();
+		this->wireCarryPlatform.setShiftDir(true);  // turn
+	}
+	else if (this->wireCarryPlatform.getShift().getCmdPos() >= 1000) {
+		this->wireCarryPlatform.shiftStop();
+		this->wireCarryPlatform.setShiftDir(false);  // turn
+	}
+
+	if (this->wireCarryPlatform.getShiftDir() == this->wireCarryPlatform.getWireDir()) {
+		this->wireCarryPlatform.leftHandClamp(true);
+		this->wireCarryPlatform.rightHandClamp(false);
+	}
+	else {
+		this->wireCarryPlatform.leftHandClamp(false);
+		this->wireCarryPlatform.rightHandClamp(true);
 	}
 }
 
@@ -362,4 +433,8 @@ void MotorPanel::panelParamsUpdate(int axisID) {
 	mainWindow->ui.spinBox_dec->setValue(this->axis[axisID].dec);
 	mainWindow->ui.spinBox_initVel->setValue(this->axis[axisID].initVel);
 	mainWindow->ui.spinBox_runningVel->setValue(this->axis[axisID].runningVel);
+}
+
+void MotorPanel::platformShiftRun() {
+	
 }

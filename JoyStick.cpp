@@ -48,4 +48,9 @@ int JoyStick::getPOV() {
     return this->joyinfoex.dwPOV;
 }
 
+int JoyStick::getButton() {
+    updateJoyInfoEx();
+    return this->joyinfoex.dwButtons;
+}
+
 

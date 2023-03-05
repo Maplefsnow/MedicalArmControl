@@ -107,6 +107,7 @@
     <ClCompile Include="RunAxisByJoyStickThread.cpp" />
     <ClCompile Include="UpdateMotorPanel.cpp" />
     <ClCompile Include="WakeRunAxisByJoyStickThread.cpp" />
+    <ClCompile Include="WireCarryPlatform.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="MainWindow.ui" />
     <QtMoc Include="MainWindow.h" />
@@ -118,6 +119,7 @@
   <ItemGroup>
     <ClInclude Include="Axis.h" />
     <ClInclude Include="JoyStick.h" />
+    <ClInclude Include="WireCarryPlatform.h" />
     <QtMoc Include="UpdateMotorPanel.h" />
     <QtMoc Include="WakeRunAxisByJoyStickThread.h" />
     <QtMoc Include="RunAxisByJoyStickThread.h" />

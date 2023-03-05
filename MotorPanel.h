@@ -6,6 +6,7 @@
 #include <functional>
 #include "Axis.h"
 #include "JoyStick.h"
+#include "WireCarryPlatform.h"
 #include "AdvMotApi.h"
 #include "AdvMotDrv.h"
 #include "RunAxisByJoyStickThread.h"
@@ -26,6 +27,7 @@ public:
 	Axis axis[8];
 
 	JoyStick joyStick;
+	WireCarryPlatform wireCarryPlatform;
 
 	UpdateMotorPanel* updateUIThread;
 	RunAxisByJoyStickThread* runAxisThread;
@@ -35,6 +37,9 @@ public:
 	Q_INVOKABLE void updateAxisStatus();
 	Q_INVOKABLE void runAxisByJoyStick();
 	Q_INVOKABLE void wakeRunAxisByJoyStick();
+
+	Q_INVOKABLE void platformDirMonitor();
+
 	void initAllAxis();
 	Axis getAxis(int);
 
@@ -51,5 +56,7 @@ public slots:
 	void axisStop();
 
 	void panelParamsUpdate(int);
+
+	void platformShiftRun();
 };
 

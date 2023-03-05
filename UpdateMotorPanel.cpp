@@ -7,7 +7,8 @@ UpdateMotorPanel::UpdateMotorPanel(QWidget* panel) {
 void UpdateMotorPanel::run() {
 	while (this->is_runnable) {
 		QMetaObject::invokeMethod(this->panel, "updateAxisStatus", Qt::AutoConnection);
-		QThread::msleep(10);
+		QMetaObject::invokeMethod(this->panel, "platformDirMonitor", Qt::AutoConnection);
+		QThread::msleep(5);
 	}
 }
 

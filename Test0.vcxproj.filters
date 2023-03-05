@@ -61,12 +61,18 @@
     <ClCompile Include="UpdateMotorPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WireCarryPlatform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="JoyStick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WireCarryPlatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
