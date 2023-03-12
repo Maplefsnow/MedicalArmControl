@@ -558,17 +558,17 @@
                  </item>
                  <item>
                   <property name="text">
-                   <string>1 - （空）</string>
+                   <string>1 - 手柄推杆</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>2 - 手柄推杆</string>
+                   <string>2 - 手柄横滚</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>3 - 手柄横滚</string>
+                   <string>3 - （空）</string>
                   </property>
                  </item>
                  <item>
@@ -578,12 +578,12 @@
                  </item>
                  <item>
                   <property name="text">
-                   <string>5 - 夹爪右</string>
+                   <string>5 - 夹爪左</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>6 - 夹爪左</string>
+                   <string>6 - 夹爪右</string>
                   </property>
                  </item>
                 </widget>
@@ -1208,7 +1208,6 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>button_cardDetect</tabstop>
   <tabstop>comboBox_axisID</tabstop>
   <tabstop>spinBox_PPU</tabstop>
   <tabstop>spinBox_PPUDenominator</tabstop>
@@ -1254,7 +1253,7 @@
    <slot>detectCard()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>967</x>
+     <x>949</x>
      <y>71</y>
     </hint>
     <hint type="destinationlabel">
@@ -1270,8 +1269,8 @@
    <slot>setAxisParams()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>127</x>
-     <y>415</y>
+     <x>165</x>
+     <y>414</y>
     </hint>
     <hint type="destinationlabel">
      <x>26</x>
@@ -1287,7 +1286,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>584</x>
-     <y>202</y>
+     <y>201</y>
     </hint>
     <hint type="destinationlabel">
      <x>602</x>
@@ -1303,7 +1302,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>465</x>
-     <y>295</y>
+     <y>294</y>
     </hint>
     <hint type="destinationlabel">
      <x>603</x>
@@ -1319,7 +1318,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>511</x>
-     <y>293</y>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>596</x>
@@ -1335,7 +1334,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>511</x>
-     <y>293</y>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>598</x>
@@ -1351,7 +1350,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>388</x>
-     <y>293</y>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>599</x>
@@ -1367,7 +1366,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>388</x>
-     <y>293</y>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>596</x>
@@ -1383,7 +1382,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>342</x>
-     <y>293</y>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>599</x>
@@ -1399,7 +1398,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>568</x>
-     <y>293</y>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>598</x>

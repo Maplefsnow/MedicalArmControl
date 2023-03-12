@@ -15,7 +15,7 @@ MotorPanel::MotorPanel(QWidget* parent) : QWidget(parent) {
 	checkCard();
 	initAllAxis();
 
-	this->wireCarryPlatform = WireCarryPlatform(this->axis[4], this->axis[6], this->axis[5]);
+	this->wireCarryPlatform = WireCarryPlatform(this->axis[4], this->axis[5], this->axis[6]);
 }
 
 MotorPanel::~MotorPanel() {
@@ -65,24 +65,24 @@ Q_INVOKABLE void MotorPanel::runAxisByJoyStick() {
 
 	bool is_control = false;
 
-	// axis 2
+	// axis 1 - ÍÆ¸Ë
 	try {
 		if (y2 <= 37000 && y2 >= 28000) {
-			this->axis[2].stop();
+			this->axis[1].stop();
 		}
 		else {
 			is_control = true;
 			if (y2 > 32767) {
-				if (this->axis[2].getMotionStatus() == 1) {
-					this->axis[2].contiMove(0);
+				if (this->axis[1].getMotionStatus() == 1) {
+					this->axis[1].contiMove(0);
 				}
-				// this->axis[2].changeVel((y2 - 32767) / 1000);
+				// this->axis[1].changeVel((y2 - 32767) / 1000);
 			}
 			else {
-				if (this->axis[2].getMotionStatus() == 1) {
-					this->axis[2].contiMove(1);
+				if (this->axis[1].getMotionStatus() == 1) {
+					this->axis[1].contiMove(1);
 				}
-				// this->axis[2].changeVel((32767 - y2) / 1000);
+				// this->axis[1].changeVel((32767 - y2) / 1000);
 			}
 		}
 	}
@@ -90,19 +90,19 @@ Q_INVOKABLE void MotorPanel::runAxisByJoyStick() {
 		qDebug() << msg;
 	}
 
-	// axis 3
+	// axis 2 - ºá¹ö
 	try {
 		if (z <= 37000 && z >= 28000) {
-			this->axis[3].stop();
+			this->axis[2].stop();
 		}
 		else {
 			is_control = true;
 			if (z > 32767) {
-				if (this->axis[3].getMotionStatus() == 1) this->axis[3].contiMove(0);
+				if (this->axis[2].getMotionStatus() == 1) this->axis[2].contiMove(0);
 				//this->axis[2].changeVelByRate((z - 32767) / 100);
 			}
 			else {
-				if (this->axis[3].getMotionStatus() == 1) this->axis[3].contiMove(1);
+				if (this->axis[2].getMotionStatus() == 1) this->axis[2].contiMove(1);
 				//this->axis[2].changeVelByRate((32767 - z) / 100);
 			}
 		}
@@ -110,7 +110,7 @@ Q_INVOKABLE void MotorPanel::runAxisByJoyStick() {
 		qDebug() << msg;
 	}
 
-	// axis 0
+	// axis 0 - ²¹³¥
 	try {
 		if (y1 <= 37000 && y1 >= 28000) {
 			this->axis[0].stop();
@@ -227,6 +227,12 @@ void MotorPanel::initAllAxis() {
 	catch (const char* errMsg) {
 		qDebug() << errMsg;
 	}
+
+	// initial params
+	this->axis[0].setPPU(1); this->axis[0].setVelParams(10000, 10000, 100, 100);
+	this->axis[1].setPPU(1); this->axis[1].setVelParams(1000, 1000, 100, 100);
+	this->axis[2].setPPU(1); this->axis[2].setVelParams(10000, 10000, 100, 100);
+	this->axis[4].setPPU(1); this->axis[4].setVelParams(500, 500, 100, 100);
 }
 
 Axis MotorPanel::getAxis(int axisID) {
@@ -422,17 +428,17 @@ void MotorPanel::axisStop() {
 	}
 }
 
-void MotorPanel::panelParamsUpdate(int axisID) {
+void MotorPanel::panelParamsUpdate(int index) {
 	MainWindow* mainWindow = dynamic_cast<MainWindow*>(this->topLevelWidget());
 
-	this->axisID = axisID - 1;
+	this->axisID = index - 1;
 
-	mainWindow->ui.spinBox_PPU->setValue(this->axis[axisID].PPU);
-	mainWindow->ui.spinBox_PPUDenominator->setValue(this->axis[axisID].PPUDenominator);
-	mainWindow->ui.spinBox_acc->setValue(this->axis[axisID].acc);
-	mainWindow->ui.spinBox_dec->setValue(this->axis[axisID].dec);
-	mainWindow->ui.spinBox_initVel->setValue(this->axis[axisID].initVel);
-	mainWindow->ui.spinBox_runningVel->setValue(this->axis[axisID].runningVel);
+	mainWindow->ui.spinBox_PPU->setValue(this->axis[this->axisID].PPU);
+	mainWindow->ui.spinBox_PPUDenominator->setValue(this->axis[this->axisID].PPUDenominator);
+	mainWindow->ui.spinBox_acc->setValue(this->axis[this->axisID].acc);
+	mainWindow->ui.spinBox_dec->setValue(this->axis[this->axisID].dec);
+	mainWindow->ui.spinBox_initVel->setValue(this->axis[this->axisID].initVel);
+	mainWindow->ui.spinBox_runningVel->setValue(this->axis[this->axisID].runningVel);
 }
 
 void MotorPanel::platformShiftRun() {
